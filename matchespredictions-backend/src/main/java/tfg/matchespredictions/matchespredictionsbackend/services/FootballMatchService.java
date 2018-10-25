@@ -1,6 +1,7 @@
 package tfg.matchespredictions.matchespredictionsbackend.services;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -27,8 +28,12 @@ public class FootballMatchService {
 	 * CRUD Methods
 	 * */
 	
+	public Optional<FootballMatch> findOne(Long id) {
+		return footballMatchRepository.findById(id);
+	}
+	
 	public Collection<FootballMatch> findAll(){
-		return (Collection<FootballMatch>) footballMatchRepository.findAll();
+		return footballMatchRepository.findAll();
 	}
 	
 	/*

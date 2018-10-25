@@ -1,50 +1,43 @@
 package tfg.matchespredictions.matchespredictionsbackend.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
  * A Football Match.
  */
 @Entity
-@Table(name = "footballmatch")
-public class FootballMatch implements Serializable {
+@Table(name = "football_match")
+public class FootballMatch{
 	
 	/*
 	 * Attributes
 	 * */
 
-	private static final long serialVersionUID = 1L;
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
-	@SequenceGenerator(name = "sequenceGenerator")
-	private Long id;
+	@Column(name="id")
+	private int id;
 
-	@Column(name="Date")
+	@Column(name="date")
 	private Date matchDate;
 
-	@Column(name="HomeTeam")
+	@Column(name="home_team")
 	private String homeTeam;	
 
-	@Column(name="AwayTeam")
+	@Column(name="away_team")
 	private String awayTeam;
 	
-	@Column(name="FTHG")
+	@Column(name="home_goals")
 	private Integer homeGoals;
 	
-	@Column(name="FTAG")
+	@Column(name="away_goals")
 	private Integer awayGoals;
 	
-	@Column(name="FTR")
+	@Column(name="match_result")
 	private String matchResult;
 
 	
@@ -52,11 +45,11 @@ public class FootballMatch implements Serializable {
 	 * Getters & Setters
 	 * */
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

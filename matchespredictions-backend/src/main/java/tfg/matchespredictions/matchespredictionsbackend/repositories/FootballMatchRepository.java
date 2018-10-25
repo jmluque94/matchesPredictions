@@ -11,6 +11,9 @@ import tfg.matchespredictions.matchespredictionsbackend.domain.FootballMatch;
 @Repository
 public interface FootballMatchRepository extends CrudRepository<FootballMatch, Long> {
 	
+	@Query("SELECT fm FROM FootballMatch fm" )
+	public Collection<FootballMatch> findAll();
+	
 	@Query("SELECT fm FROM FootballMatch fm WHERE fm.homeTeam = ?1 OR fm.awayTeam = ?1" )
 	public Collection<FootballMatch> findAllByTeam(String team);
 	
